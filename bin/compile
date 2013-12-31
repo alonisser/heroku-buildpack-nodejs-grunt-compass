@@ -23,6 +23,13 @@ node_version=$(curl --silent --get --data-urlencode "range=${semver_range}" http
 
 status "Running custom node.js buildpack"
 
+# install compass
+status "Installing Compass"
+export GEM_HOME=$BUILD_DIR/.gem/ruby/1.9.1
+PATH="$GEM_HOME/bin:$PATH"
+HOME=$BUILD_DIR gem install compass --user-install --no-rdoc --no-ri
+
+
 # Recommend using semver ranges in a safe manner
 if [ "$semver_range" == "null" ]; then
   protip "Specify a node version in package.json"
@@ -68,6 +75,9 @@ elif test -d $cache_dir/node_modules; then
   status "Pruning cached dependencies not specified in package.json"
   npm prune 2>&1 | indent
 fi
+
+status "Installing grunt"
+npm install --userconfig $build_dir/.npmrc -g grunt 2>&1 | indent
 
 # Make npm output to STDOUT instead of its default STDERR
 status "Installing dependencies"
