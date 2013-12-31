@@ -3,11 +3,10 @@ Heroku Buildpack for Node.js
 
 This is the official [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks) for Node.js apps. If you fork this repository, please **update this README** to explain what your fork does and why it's special.
 
-
-Changes
+Fork Changes (12/31/2013)
 ------------
-- Installs all dependenices rather than just production, so that full build can run
-- Installs grunt globally
+- Installs all dependenices rather than just production, so that a full build can run
+- Installs grunt globally (it doesn't automatically run grunt) use node postinstall to run grunt
 - Installs compass
 
 How it Works
