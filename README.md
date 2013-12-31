@@ -9,6 +9,12 @@ Fork Changes (12/31/2013)
 - Installs grunt globally (it doesn't automatically run grunt) use node postinstall to run grunt
 - Installs compass
 
+Fork Usage
+------------
+```
+heroku config:add BUILDPACK_URL=https://github.com/cmackay/heroku-buildpack-nodejs-grunt-compass.git
+```
+
 How it Works
 ------------
 
