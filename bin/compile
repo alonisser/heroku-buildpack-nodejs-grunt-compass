@@ -25,9 +25,9 @@ status "Running custom node.js buildpack"
 
 # install compass
 status "Installing Compass"
-export GEM_HOME=$BUILD_DIR/.gem/ruby/1.9.1
+export GEM_HOME=$build_dir/.gem/ruby/1.9.1
 PATH="$GEM_HOME/bin:$PATH"
-HOME=$BUILD_DIR gem install compass --user-install --no-rdoc --no-ri
+HOME=$build_dir gem install compass --user-install --no-rdoc --no-ri
 
 
 # Recommend using semver ranges in a safe manner
